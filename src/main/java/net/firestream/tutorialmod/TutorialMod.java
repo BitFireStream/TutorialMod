@@ -1,8 +1,8 @@
-package net.FireStream.tutorialmod;
+package net.firestream.tutorialmod;
 
 import com.mojang.logging.LogUtils;
-import net.FireStream.tutorialmod.item.ModItems;
-import net.FireStream.tutorialmod.item.ModCreativeModeTabs;
+import net.firestream.tutorialmod.item.modItems;
+import net.firestream.tutorialmod.item.modCreativeModeTabs;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,7 +25,7 @@ public class TutorialMod {
     public TutorialMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(modEventBus);
+        modItems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -39,13 +39,13 @@ public class TutorialMod {
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.BLACK_OPAL);
-            event.accept(ModItems.RAW_BLACK_OPAL);
+            event.accept(modItems.BLACK_OPAL);
+            event.accept(modItems.RAW_BLACK_OPAL);
         }
 
-        if(event.getTab() == ModCreativeModeTabs.TUTORIAL_TAB) {
-            event.accept(ModItems.BLACK_OPAL);
-            event.accept(ModItems.RAW_BLACK_OPAL);
+        if(event.getTab() == modCreativeModeTabs.TUTORIAL_TAB) {
+            event.accept(modItems.BLACK_OPAL);
+            event.accept(modItems.RAW_BLACK_OPAL);
         }
     }
 
